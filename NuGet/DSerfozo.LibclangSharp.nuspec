@@ -1,9 +1,8 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
-    <id>$id$</id>
+    <id>DSerfozo.LibclangSharp</id>
     <version>$version$</version>
-    <title>$title$</title>
     <authors>David Serfozo</authors>
     <owners>David Serfozo</owners>
     <licenseUrl>https://raw.githubusercontent.com/arsher/libclangsharp/master/LICENSE</licenseUrl>
