@@ -1,22 +1,25 @@
-environment:
-  VisualStudioVersion: 14.0
-
-version: 0.1.0-CI{build}
-  
-shallow_clone: true
-  
-# Disable tests
-test: off
-
-#artifacts:
-#  - path: NuGet\*.nupkg
-#    name: nupkgfiles
-
-# Publish to myget.org feed
-#deploy:
-#  provider: NuGet
-#  server: https://www.myget.org/F/dserfozo/
-#  api_key:
-#    secure: uz70X1rDufUiuaV59aw5GKHF6lLvRCe9QkBZQkjGaxwAP/LSuVHdRAdEwRIZhkai
-#  skip_symbols: true
-#  artifact: nupkgfiles
+version: 0.1.{build}
+pull_requests:
+  do_not_increment_build_number: true
+configuration: Release
+platform: Any CPU
+nuget:
+  disable_publish_on_pr: true
+before_build:
+- cmd: nuget restore
+build:
+  project: DSerfozo.LibclangSharp.sln
+  publish_nuget: true
+  verbosity: normal
+after_build:
+- cmd: nuget pack NuGet\DSerfozo.LibclangSharp.nuspec -NoPackageAnalysis -Version %APPVEYOR_BUILD_VERSION% -OutputDirectory NuGet
+artifacts:
+- path: NuGet/*.nupkg
+  name: Package
+deploy:
+- provider: NuGet
+  server: https://www.myget.org/F/dserfozo/
+  api_key:
+    secure: uz70X1rDufUiuaV59aw5GKHF6lLvRCe9QkBZQkjGaxwAP/LSuVHdRAdEwRIZhkai
+  skip_symbols: true
+  artifact: Package
