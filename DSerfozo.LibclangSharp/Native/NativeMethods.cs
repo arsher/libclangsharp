@@ -60,5 +60,8 @@ namespace DSerfozo.LibclangSharp.Native
 
         [DllImport(LibName, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
         public static extern CXString clang_getFileName(IntPtr file);
+
+        [DllImport(LibName, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+        public static extern int clang_Location_isInSystemHeader(CXSourceLocation @location);
     }
 }

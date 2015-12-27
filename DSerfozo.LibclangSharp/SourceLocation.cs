@@ -34,6 +34,11 @@ namespace DSerfozo.LibclangSharp
             get { return fileName; }
         }
 
+        public bool IsInSystemHeader
+        {
+            get { return NativeMethods.clang_Location_isInSystemHeader(nativeSourceLocation) != 0; }
+        }
+
         internal SourceLocation(CXSourceLocation nativeSourceLocation)
         {
             this.nativeSourceLocation = nativeSourceLocation;
