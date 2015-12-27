@@ -1,4 +1,4 @@
-# libclangsharp
+# libclangsharp [![Build status](https://ci.appveyor.com/api/projects/status/qlyj5sxrd48wht8x/branch/master?svg=true)](https://ci.appveyor.com/project/SerfzDvid/libclangsharp/branch/master)
 
 Small set of OO bindings for libclang. Currently only contains stuff that I needed.
 
