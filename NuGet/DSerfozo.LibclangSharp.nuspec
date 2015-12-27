@@ -13,6 +13,6 @@
     <tags>libclang roslyn c++ clang llvm</tags>
   </metadata>
   <files>
-    <file src="..\DSerfozo.LibclangSharp\bin\Release\DSerfozo.LibclangSharp.dll" />
+    <file src="..\DSerfozo.LibclangSharp\bin\Release\DSerfozo.LibclangSharp.dll" target="lib/net40" />
   </files>
 </package>
