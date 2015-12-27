@@ -10,7 +10,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Simple OO wrapper on top of libclang in C#.</description>
     <copyright>Copyright © 2015 David Serfozo</copyright>
-    <tags>Tag1 Tag2</tags>
+    <tags>libclang roslyn c++ clang llvm</tags>
   </metadata>
   <files>
     <file src="..\DSerfozo.LibclangSharp\bin\Release\DSerfozo.LibclangSharp.dll" />
