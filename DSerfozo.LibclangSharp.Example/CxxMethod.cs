@@ -9,17 +9,17 @@ namespace DSerfozo.LibclangSharp.Example
     {
         private readonly string name;
         private readonly string resultType;
-        private readonly CXXAccessSpecifier accessSpecifier;
+        private readonly AccessSpecifier accessSpecifier;
 
         public string Name => name;
 
         public string ResultType => resultType;
 
-        public CXXAccessSpecifier AccessSpecifier => accessSpecifier;
+        public AccessSpecifier AccessSpecifier => accessSpecifier;
 
         public List<Tuple<string, string>> Parameters { get; } = new List<Tuple<string, string>>();
 
-        public CxxMethod(string name, string resultType, CXXAccessSpecifier accessSpecifier)
+        public CxxMethod(string name, string resultType, AccessSpecifier accessSpecifier)
         {
             this.name = name;
             this.resultType = resultType;

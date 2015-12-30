@@ -1,6 +1,6 @@
 ﻿namespace DSerfozo.LibclangSharp
 {
-    public enum CXXAccessSpecifier : uint
+    public enum AccessSpecifier : uint
     {
         CXXInvalidAccessSpecifier = 0,
         CXXPublic = 1,

@@ -41,7 +41,7 @@
     <Compile Include="ClangException.cs" />
     <Compile Include="Cursor.cs" />
     <Compile Include="CursorKind.cs" />
-    <Compile Include="CXXAccessSpecifier.cs" />
+    <Compile Include="AccessSpecifier.cs" />
     <Compile Include="DisposableObject.cs" />
     <Compile Include="Index.cs" />
     <Compile Include="Native\CXCursor.cs" />

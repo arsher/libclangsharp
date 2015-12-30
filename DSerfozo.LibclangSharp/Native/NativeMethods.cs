@@ -47,7 +47,7 @@ namespace DSerfozo.LibclangSharp.Native
         public static extern CXType clang_getCursorType(CXCursor cursor);
 
         [DllImport(LibName, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
-        public static extern CXXAccessSpecifier clang_getCXXAccessSpecifier(CXCursor @param0);
+        public static extern AccessSpecifier clang_getCXXAccessSpecifier(CXCursor @param0);
 
         [DllImport(LibName, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
         public static extern uint clang_CXXMethod_isPureVirtual(CXCursor cursor);

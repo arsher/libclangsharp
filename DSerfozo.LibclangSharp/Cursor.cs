@@ -41,7 +41,7 @@ namespace DSerfozo.LibclangSharp
             get { return NativeMethods.clang_getCursorSpelling(nativeCursor).ToManagedString(); }
         }
 
-        public CXXAccessSpecifier AccessSpecifier
+        public AccessSpecifier AccessSpecifier
         {
             get { return NativeMethods.clang_getCXXAccessSpecifier(nativeCursor); }
         }
