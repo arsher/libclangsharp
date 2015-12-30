@@ -5,7 +5,7 @@ using DSerfozo.LibclangSharp.Native;
 
 namespace DSerfozo.LibclangSharp
 {
-    public sealed class Index : DisposableObject<Index>
+    public sealed class Index : DisposableObject
     {
         private readonly IntPtr nativeIndex;
         private readonly List<TranslationUnit> translationUnits = new List<TranslationUnit>();
@@ -15,7 +15,7 @@ namespace DSerfozo.LibclangSharp
             get { return translationUnits.Where(t => !t.IsDisposed); }
         } 
 
-        public Index() : base(DisposeCallback)
+        public Index() : base()
         {
             nativeIndex = Native.NativeMethods.clang_createIndex(0, 0);
         }
@@ -47,17 +47,18 @@ namespace DSerfozo.LibclangSharp
             return result;
         }
 
-        private static void DisposeCallback(Index index, bool disposing)
+        protected override void DisposeInternal(bool disposing)
         {
             if (disposing)
             {
-                index.translationUnits.ForEach(t => t.Dispose());
-                index.translationUnits.Clear();
+                translationUnits.ForEach(t => t.Dispose());
             }
 
-            if (!index.IsDisposed && index.nativeIndex != IntPtr.Zero)
+            translationUnits.Clear();
+
+            if (nativeIndex != IntPtr.Zero)
             {
-                Native.NativeMethods.clang_disposeIndex(index.nativeIndex);
+                Native.NativeMethods.clang_disposeIndex(nativeIndex);
             }
         }
     }

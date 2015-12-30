@@ -5,9 +5,8 @@ using System.Text;
 
 namespace DSerfozo.LibclangSharp
 {
-    public abstract class DisposableObject<T> : IDisposable where T : class
+    public abstract class DisposableObject : IDisposable
     {
-        private readonly Action<T, bool> disposeCallback;
         private bool disposed;
 
         protected internal bool IsDisposed
@@ -18,9 +17,8 @@ namespace DSerfozo.LibclangSharp
             }
         }
 
-        protected DisposableObject(Action<T, bool> disposeCallback)
+        protected DisposableObject()
         {
-            this.disposeCallback = disposeCallback;
         }
 
         ~DisposableObject()
@@ -42,14 +40,16 @@ namespace DSerfozo.LibclangSharp
             }
         }
 
+        protected virtual void DisposeInternal(bool disposing)
+        {
+            
+        }
+
         private void Dispose(bool disposing)
         {
             if (!disposed)
             {
-                if (disposeCallback != null)
-                {
-                    disposeCallback(this as T, disposing);
-                }
+                DisposeInternal(disposing);
 
                 disposed = true;
             }

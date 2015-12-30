@@ -7,7 +7,7 @@ using DSerfozo.LibclangSharp.Native;
 
 namespace DSerfozo.LibclangSharp
 {
-    public sealed class TranslationUnit : DisposableObject<TranslationUnit>
+    public sealed class TranslationUnit : DisposableObject
     {
         private readonly IntPtr nativeTranslationUnit;
         private Cursor cursor;
@@ -25,16 +25,16 @@ namespace DSerfozo.LibclangSharp
             }
         }
 
-        internal TranslationUnit(IntPtr nativeTranslationUnit) : base(DisposeCallback)
+        internal TranslationUnit(IntPtr nativeTranslationUnit) : base()
         {
             this.nativeTranslationUnit = nativeTranslationUnit;
         }
 
-        private static void DisposeCallback(TranslationUnit obj, bool disposing)
+        protected override void DisposeInternal(bool disposing)
         {
-            if (!obj.IsDisposed && obj.nativeTranslationUnit != IntPtr.Zero)
+            if (nativeTranslationUnit != IntPtr.Zero)
             {
-                NativeMethods.clang_disposeTranslationUnit(obj.nativeTranslationUnit);
+                NativeMethods.clang_disposeTranslationUnit(nativeTranslationUnit);
             }
         }
     }
