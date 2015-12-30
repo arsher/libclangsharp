@@ -8,8 +8,10 @@ namespace DSerfozo.LibclangSharp.Native
 {
     internal struct CXString
     {
+#pragma warning disable 649
         public readonly IntPtr data;
         public readonly uint private_flags;
+#pragma warning restore 649
 
         public string ToManagedString()
         {
